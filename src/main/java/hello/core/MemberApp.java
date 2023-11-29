@@ -16,7 +16,7 @@ public class MemberApp {
 //        MemberService memberService = appConfig.memberService(); // memberService의 인터페이스를 받음 - 거기 안에는 memberServiceImpl이 있다.
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        applicationContext.getBean("memberService", MemberService.class)
+        MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
 
 
         Member member = new Member(1L, "memberA", Grade.VIP);
