@@ -40,5 +40,17 @@ public class ConfigurationSingletonTest {
      * memberRepository3 = hello.core.member.MemoryMemberRepository@26f1249d
      */
 
+    @Test
+    void configurationDeep() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean.getClass() = " + bean.getClass());
+    }
+
+    /**
+     * bean.getClass() = class hello.core.AppConfig$$SpringCGLIB$$0 -> 내가 만든 코드가 아니라 스프링의 조작이 있다. -> 싱글톤을 보장해줌.
+     * 이미 스프링 컨테이너에 있으면 스프링 컨테이너에서 찾아서 반환.
+     */
 
 }
