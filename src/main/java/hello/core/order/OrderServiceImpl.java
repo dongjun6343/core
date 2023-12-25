@@ -17,7 +17,16 @@ public class OrderServiceImpl implements OrderService{
     //   DIP를 지킴 -> NPE발생.. -> 어떻게 해결해야할까?
     private final  DiscountPolicy discountPolicy;
 
-    @Autowired
+    /**
+     * 생성자 주입
+     * 생성자가 1개이면 @Autowired 생략가능
+     * 특징 : 불변. 고정
+     *
+     * new OrderServiceImpl(memberRepository, discountPolicy)
+     * - 자바 문법임.
+     *
+     */
+//    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
