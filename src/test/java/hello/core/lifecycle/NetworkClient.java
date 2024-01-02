@@ -1,12 +1,6 @@
 package hello.core.lifecycle;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-
-/**
- * InitializingBean, DisposableBean -> 오래된 방법이라서 사용x
- */
-public class NetworkClient implements InitializingBean, DisposableBean {
+public class NetworkClient {
 
     /**
      * 스프링 빈은 간단하게 다음과 같은 라이프스타일을 가진다.
@@ -39,14 +33,12 @@ public class NetworkClient implements InitializingBean, DisposableBean {
         System.out.println("close : " + url);
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    public void init() throws Exception {
         connect();
         call("초기화 연결 메시지");
     }
 
-    @Override
-    public void destroy() throws Exception {
+    public void close() throws Exception {
         disconnect();
     }
 }
