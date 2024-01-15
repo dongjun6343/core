@@ -39,4 +39,8 @@ public class PrototypeTest {
             System.out.println("PrototypeBean.destory");
         }
     }
+
+
+
+
 }
